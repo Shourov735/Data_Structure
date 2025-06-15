@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAX 100
 int a[MAX];
-void bubbleSort(int n);
+void selectionSort(int n);
 
 int main()
 {
@@ -13,8 +13,8 @@ int main()
 		scanf("%d",&a[i]);
 	}
 	
-	bubbleSort(n);
-	printf("After bubble sort:\n");
+	selectionSort(n);
+	printf("After selection sort:\n");
 
 	for(int i=0;i<n;i++)
 	{
@@ -22,18 +22,22 @@ int main()
 	}
 	return 0; 
 }
-void bubbleSort(int n)
+void selectionSort(int n)
 {
 	for(int i=0;i<n;i++)
 	{
+		int minindex=i;
+		int min=a[i];
 		for(int j=i+1;j<n;j++)
 		{
-			if(a[j]<a[i])
+			if(a[j]<min) // <= does not maintain FIFO but < does
 			{
-				int temp=a[i];
-				a[i]=a[j];
-				a[j]=temp;
+				minindex=j;
+				min=a[j];
 			}
 		}
+		int temp=a[i];
+		a[i]=a[minindex];
+		a[minindex]=temp;
 	}
 }
