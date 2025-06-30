@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAX 100
-int arr[MAX];
-int temp[MAX];
+int arr[MAX+1];
+int temp[MAX+1];
 void mergeSort(int start,int end);
 void merge(int start,int mid,int end);
 int main()
